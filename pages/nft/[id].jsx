@@ -7,7 +7,7 @@ function NftDropPage() {
   return (
     <div className="flex h-screen flex-col lg:grid lg:grid-cols-10">
       {/* left side */}
-      <div className="  bg-gradient-to-br from-cyan-700 to-rose-500 lg:col-span-4">
+      <div className="  bg-gradient-to-br from-cyan-600 to-pink-400 lg:col-span-4">
         <div className="flex flex-col items-center justify-center py-2 lg:min-h-screen">
           <div className="rounded-xl bg-gradient-to-br from-yellow-300 to-purple-500 p-2">
             <img

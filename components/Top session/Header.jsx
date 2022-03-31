@@ -9,7 +9,6 @@ const style = {
 }
 const Header = ({ appStatus }) => {
   const [isOpen, setIsOpen] = React.useState(false)
-  const connectWithMetamask = useMetamask()
   return (
     <div className={style.wrapper}>
       <div>
