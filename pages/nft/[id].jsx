@@ -1,7 +1,9 @@
 import React from 'react'
 import Header from '../../components/Top session/Header'
-
+import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
 function NftDropPage() {
+  const address = useAddress()
+  const appStatus = !!address
   return (
     <div className="flex h-screen flex-col lg:grid lg:grid-cols-10">
       {/* left side */}
@@ -23,12 +25,21 @@ function NftDropPage() {
         </div>
       </div>
       {/* Right */}
-      <div className="flex flex-1 flex-col p-12 lg:col-span-6">
+      <div className="flex flex-1 flex-col bg-gray-900 p-12 lg:col-span-6">
         {/* Header */}
         <div>
-          <Header />
+          <Header appStatus={appStatus} />
         </div>
         <hr className="my-4 border" />
+        {/* User Status */}
+        {appStatus ? (
+          <span className="select-none text-center text-xl font-bold text-green-500">
+            You're logged in with wallet {address?.slice(0, 4)}...
+            {address?.slice(37)}{' '}
+          </span>
+        ) : (
+          ''
+        )}
         {/* Content */}
         <div className="mt-10 flex flex-1 flex-col items-center space-y-6 text-center lg:justify-center lg:space-y-0 ">
           <img
@@ -36,7 +47,7 @@ function NftDropPage() {
             src="https://links.papareact.com/bdy"
             alt=""
           />
-          <h1 className="text-3xl font-bold lg:text-5xl lg:font-extrabold">
+          <h1 className="text-3xl font-bold text-white lg:text-5xl lg:font-extrabold">
             The Space Arton Coding Club | NFT DROP
           </h1>
           <p className="pt-2 text-xl text-green-500">13/30 NFT's Claimed</p>
